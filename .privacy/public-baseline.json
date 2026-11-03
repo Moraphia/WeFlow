@@ -1,0 +1,679 @@
+{
+  "upstream_repository": "https://github.com/hicccc77/WeFlow",
+  "upstream_commit": "b4d334d6accc7b4d92cb0c54124eaf67d61e9807",
+  "public_matches": [
+    {
+      "path": "README.md",
+      "rule": "email",
+      "digest": "6e9a0fbd1e0c0d25e0ba013331d9f28066cd8f5f234a279112286336dddc6610"
+    },
+    {
+      "path": "docs/HTTP-API.md",
+      "rule": "home-path",
+      "digest": "2fc882bacb64698bb8ddd08dc3b143c4f25ee2f2aa7c257a7389d483abecd00f"
+    },
+    {
+      "path": "docs/HTTP-API.md",
+      "rule": "home-path",
+      "digest": "2fc882bacb64698bb8ddd08dc3b143c4f25ee2f2aa7c257a7389d483abecd00f"
+    },
+    {
+      "path": "docs/HTTP-API.md",
+      "rule": "home-path",
+      "digest": "2fc882bacb64698bb8ddd08dc3b143c4f25ee2f2aa7c257a7389d483abecd00f"
+    },
+    {
+      "path": "docs/HTTP-API.md",
+      "rule": "wechat-id",
+      "digest": "c6103f0f70bdef39d53d75db414ee3bbf6ab9fbde22597deb10c5155108b4ef5"
+    },
+    {
+      "path": "docs/HTTP-API.md",
+      "rule": "wechat-id",
+      "digest": "c6103f0f70bdef39d53d75db414ee3bbf6ab9fbde22597deb10c5155108b4ef5"
+    },
+    {
+      "path": "docs/HTTP-API.md",
+      "rule": "wechat-id",
+      "digest": "c6103f0f70bdef39d53d75db414ee3bbf6ab9fbde22597deb10c5155108b4ef5"
+    },
+    {
+      "path": "docs/HTTP-API.md",
+      "rule": "wechat-id",
+      "digest": "94f3bd914ef60e029f481dd8dfe656141c8aff7b695f6677da360b1957b1cece"
+    },
+    {
+      "path": "docs/HTTP-API.md",
+      "rule": "wechat-id",
+      "digest": "288d4e186fc0c34a39686a1b2ca3a880e316bfb8df25eefaee0eb113498347d8"
+    },
+    {
+      "path": "electron/assets/wasm/wasm_video_decode.js",
+      "rule": "home-path",
+      "digest": "4899316c3df8d4e171501719674377e217e901124b9c57cc56818f0a14418708"
+    },
+    {
+      "path": "electron/services/videoService.ts",
+      "rule": "home-path",
+      "digest": "334dfcb2a301b6c03115d0af45e558201520f3df8910f319033bed24eb0fa7ef"
+    },
+    {
+      "path": "electron/utils/pathUtils.ts",
+      "rule": "home-path",
+      "digest": "c89f0e60c3049660b66dd6c7a90441eee7ca03317f4779fb9fe8b89bc2bd24b3"
+    },
+    {
+      "path": "electron/utils/pathUtils.ts",
+      "rule": "home-path",
+      "digest": "c89f0e60c3049660b66dd6c7a90441eee7ca03317f4779fb9fe8b89bc2bd24b3"
+    },
+    {
+      "path": "package-lock.json",
+      "rule": "email",
+      "digest": "b0373516d594ddd199b25c3655332b354837e065c5cc232f5043189897900ca7"
+    },
+    {
+      "path": "package.json",
+      "rule": "email",
+      "digest": "6e9a0fbd1e0c0d25e0ba013331d9f28066cd8f5f234a279112286336dddc6610"
+    },
+    {
+      "path": "resources/installer/linux/PKGBUILD",
+      "rule": "email",
+      "digest": "3bd7e920304749e5a354d42811fc2f75791828bc285054e14c274c605aa5d1e7"
+    },
+    {
+      "path": "src/components/ai/RelayOneGuide.tsx",
+      "rule": "literal-key",
+      "digest": "4bfd3291cbd10673d9fde37830c557bece391a5c69bcbed44cce1d6e89b9801f"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "8dc7a4227947aa4e9146df93bcb2461a4baff1b189797ecad21d44d425fe142b"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "91ebb2ac58111485e0254e6c67083d4d29d18b85f9c9a0be679e3fcf891c8a40"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "8dc7a4227947aa4e9146df93bcb2461a4baff1b189797ecad21d44d425fe142b"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "bd85be195d290e3f9c5c9c1d154106df130594cd44b513bc64e838162df61537"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "8dc7a4227947aa4e9146df93bcb2461a4baff1b189797ecad21d44d425fe142b"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "8dc7a4227947aa4e9146df93bcb2461a4baff1b189797ecad21d44d425fe142b"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "bd85be195d290e3f9c5c9c1d154106df130594cd44b513bc64e838162df61537"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "8dc7a4227947aa4e9146df93bcb2461a4baff1b189797ecad21d44d425fe142b"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "bd85be195d290e3f9c5c9c1d154106df130594cd44b513bc64e838162df61537"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "91ebb2ac58111485e0254e6c67083d4d29d18b85f9c9a0be679e3fcf891c8a40"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "91ebb2ac58111485e0254e6c67083d4d29d18b85f9c9a0be679e3fcf891c8a40"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "8dc7a4227947aa4e9146df93bcb2461a4baff1b189797ecad21d44d425fe142b"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "bd85be195d290e3f9c5c9c1d154106df130594cd44b513bc64e838162df61537"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "8dc7a4227947aa4e9146df93bcb2461a4baff1b189797ecad21d44d425fe142b"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "8dc7a4227947aa4e9146df93bcb2461a4baff1b189797ecad21d44d425fe142b"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "bd85be195d290e3f9c5c9c1d154106df130594cd44b513bc64e838162df61537"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "8dc7a4227947aa4e9146df93bcb2461a4baff1b189797ecad21d44d425fe142b"
+    },
+    {
+      "path": "resources/local-wcdb/THIRD-PARTY-NOTICES.txt",
+      "rule": "email",
+      "digest": "bd85be195d290e3f9c5c9c1d154106df130594cd44b513bc64e838162df61537"
+    }
+  ],
+  "public_binary_assets": [
+    {
+      "path": "app.jpg",
+      "sha256": "e9d8078f75a620ed240f694a0c7c6b749af5d5b7dc06d5acd472d72bf6381949"
+    },
+    {
+      "path": "electron/assets/wasm/wasm_video_decode.wasm",
+      "sha256": "dca796bacec37d8522c7983b3945e5d579bd74164e3b21f0ebc773be6dfc8b6e"
+    },
+    {
+      "path": "public/assets/animal/发抖.png",
+      "sha256": "770bc480ce6ba4453f02b2dcd1ed456cb5f999f79c06e721ec88e76091db4c03"
+    },
+    {
+      "path": "public/assets/animal/猪头.png",
+      "sha256": "7e9788372841aab5ce4553495a347a698b0c260df83c1dcbbede3e7302ef6f5a"
+    },
+    {
+      "path": "public/assets/animal/跳跳.png",
+      "sha256": "3e5483abbf62c8f0a8fcbe20048cebc3f77174f038fbe5f12604c7315e4c9021"
+    },
+    {
+      "path": "public/assets/animal/转圈.png",
+      "sha256": "e7bd77bb48840079c7a10b3f4c924264a06d8f35d541bf8e6c66047020c44162"
+    },
+    {
+      "path": "public/assets/blessing/庆祝.png",
+      "sha256": "c6b8f023d2da2008419138b9fed9e5dcb203a19d47a0b80da91359a867531cf0"
+    },
+    {
+      "path": "public/assets/blessing/烟花.png",
+      "sha256": "aae0da6c6fb99e4cc944e62c82d2555d574819d6b5e514626ffb5332045d4937"
+    },
+    {
+      "path": "public/assets/blessing/爆竹.png",
+      "sha256": "d4a5a412073e43f689a359ef2dae2c330993f4308d8f8fad71557919ba3b4915"
+    },
+    {
+      "path": "public/assets/blessing/發.png",
+      "sha256": "833d51e147f45e24a60da04ec17513c039e11cc2455b9c407d38de6e5a31e3f6"
+    },
+    {
+      "path": "public/assets/blessing/礼物.png",
+      "sha256": "e6f97070d850a957f0d16f857ee9566c4ec2612d4e413b5d8544c591a95900e5"
+    },
+    {
+      "path": "public/assets/blessing/福.png",
+      "sha256": "fe28ce513da313af18039204be29d3c702f8c67f7bda39f96dcdde29f37db9c9"
+    },
+    {
+      "path": "public/assets/blessing/红包.png",
+      "sha256": "90b8278a344192e0594ef3a40560987909a126b99a566e6b8a33be4ae6f665fa"
+    },
+    {
+      "path": "public/assets/face/666.png",
+      "sha256": "a2a4257426d3c930040c8e12578be694710c07fdfa1997593801a4e1ef4ad390"
+    },
+    {
+      "path": "public/assets/face/Emm.png",
+      "sha256": "47f731bdcb22ae98e7b840f2578f3dedcb020f1934b0e3a2330e77f00bcfc638"
+    },
+    {
+      "path": "public/assets/face/亲亲.png",
+      "sha256": "0ffec742ef0d6d2ff314ea0e1c39bc2aaa40504c75d995bdce74b2190bd655f8"
+    },
+    {
+      "path": "public/assets/face/偷笑.png",
+      "sha256": "0b079dd1ee98e3c92266c400d91622d472ea90e466b08eab311053d4992bff45"
+    },
+    {
+      "path": "public/assets/face/傲慢.png",
+      "sha256": "c7f4ea365a7ba8c356d03aa2cfc271bf25286fc53729e06f1e3322c29bfa0c02"
+    },
+    {
+      "path": "public/assets/face/再见.png",
+      "sha256": "c2297c1b93bc763b66363b2afbc1df7f0c5e4d346ee28ad203e754bc2ec53d5d"
+    },
+    {
+      "path": "public/assets/face/加油.png",
+      "sha256": "2cf9af7c70c99714aee4bae7106907bc85edebdf99a9d7483954a7ef7f564b6a"
+    },
+    {
+      "path": "public/assets/face/发呆.png",
+      "sha256": "ea4a5eb428fec824b9c2f8c75fbee17ee03b5f2e1021e20634be0671d0550ba2"
+    },
+    {
+      "path": "public/assets/face/发怒.png",
+      "sha256": "71af5bbb0ab0e0dae239160d832fada00e4ba0f39afc620aca1d859a844ce6db"
+    },
+    {
+      "path": "public/assets/face/可怜.png",
+      "sha256": "be16a70d7df5b1afd3ecc5ef7833a64d680fb29181a0376f09c51c25c7cb69e5"
+    },
+    {
+      "path": "public/assets/face/右哼哼.png",
+      "sha256": "397e2f663c536b7beafef67a109b1db18c47478a2bd9983e6471c2fe4eca09db"
+    },
+    {
+      "path": "public/assets/face/叹气.png",
+      "sha256": "9a2ca8ef0c248eb8794c54d6f6e944187dfce4021fdc962ab673346be858887c"
+    },
+    {
+      "path": "public/assets/face/吃瓜.png",
+      "sha256": "5cd8323970509b32723b1895a936bb2c98b8f3743e826c0c42e86457cff8ce80"
+    },
+    {
+      "path": "public/assets/face/吐.png",
+      "sha256": "0d1558e86be6378c9d04bab16c35d420b2b501b7cbc960d645540ebad286cdb6"
+    },
+    {
+      "path": "public/assets/face/呲牙.png",
+      "sha256": "ba54e9d1eefb02e251febe4062607f2ee6e2a8e48991264d99e42fdf36464838"
+    },
+    {
+      "path": "public/assets/face/咒骂.png",
+      "sha256": "1d3806ba8760e0c7c54d12c3fe028becc9efab90d514885ca761ea1b4e09a75a"
+    },
+    {
+      "path": "public/assets/face/哇.png",
+      "sha256": "facbbd696b4de0c9ec3cfcb0b0cf7111e7154d4c5615da6cbb531e067151bbe2"
+    },
+    {
+      "path": "public/assets/face/嘘.png",
+      "sha256": "5b1885cd5afae68db690fe8bfa5787d25bf8112dfd8ecbba5842245d8c77c64d"
+    },
+    {
+      "path": "public/assets/face/嘿哈.png",
+      "sha256": "abfdffe143940a2a7d4f3ec9e95e89fbdc8bf469a37afda809b9c5e4cc0c6e5a"
+    },
+    {
+      "path": "public/assets/face/囧.png",
+      "sha256": "00208550f9dc3248e465652a315a4344dad84ac4a3607c7b08c635a60dc23479"
+    },
+    {
+      "path": "public/assets/face/困.png",
+      "sha256": "d8e945200aadb2458ba966d69620338b5a353d87e3cae53edee43e0916d864fd"
+    },
+    {
+      "path": "public/assets/face/坏笑.png",
+      "sha256": "c1c91d7a6d31a52f2652c97e2c3c259de70c2c2afefbf37cc1e1fa2e6f7fa4f8"
+    },
+    {
+      "path": "public/assets/face/大哭.png",
+      "sha256": "26849dc6ad87d6cd87c2d2b130b2c50f9dc59ede2dbcf1c136dd65ee9533c9f6"
+    },
+    {
+      "path": "public/assets/face/天啊.png",
+      "sha256": "f36b1d1d8818c6380f29023d1e3351925d86fe76a104281ef15b8d9707092637"
+    },
+    {
+      "path": "public/assets/face/失望.png",
+      "sha256": "d00ad0b82a91a250236aa655f8c24e9cab6f16048014687668801e005e44c1fa"
+    },
+    {
+      "path": "public/assets/face/奸笑.png",
+      "sha256": "f85a6196ecb62d7590c0068a1018eb0d342aa8e5c6bd988ee944f297358f22d6"
+    },
+    {
+      "path": "public/assets/face/好的.png",
+      "sha256": "c731d28eace000d8171faccdf20146576644dc02ba1ffe015ca5428d2d9dde3c"
+    },
+    {
+      "path": "public/assets/face/委屈.png",
+      "sha256": "4c0e5dae5585c49532b2e6094aa2de7308ea08c3e9876824ec8b00d2637b78cd"
+    },
+    {
+      "path": "public/assets/face/害羞.png",
+      "sha256": "48976575b17a9e095aa1443fa96c8aa52c36194be02a975c03577a5f2837f58d"
+    },
+    {
+      "path": "public/assets/face/尴尬.png",
+      "sha256": "b65f04ee04141c7f6429bf5acdb656756124080bddbc059faae4f32c2660399a"
+    },
+    {
+      "path": "public/assets/face/得意.png",
+      "sha256": "4b66b097193ba62c485320c98331478546971487b12a8784b7d24bbfa3d9880a"
+    },
+    {
+      "path": "public/assets/face/微笑.png",
+      "sha256": "057709049526e257a9a45cda40954f3c23fc6ec3f86ef87981413afb2808d68c"
+    },
+    {
+      "path": "public/assets/face/快哭了.png",
+      "sha256": "b9d0bdbda04379446d142c56d8ac3cd17452d059aef1c97da3fe4ff856d6eafd"
+    },
+    {
+      "path": "public/assets/face/恐惧.png",
+      "sha256": "de7c30c2ca3e6eb1987ab037e614ed2c3776e84284d93c03fc6c93a6a1eac64b"
+    },
+    {
+      "path": "public/assets/face/悠闲.png",
+      "sha256": "6b7c73bb4fa008ef1705bef2aee0e242f6c41bae9e7c6f27f8da659cb2d19380"
+    },
+    {
+      "path": "public/assets/face/惊恐.png",
+      "sha256": "e67e0032347ddffc3a01faf83bd1a9ff0f97fe170f96fdbc1dc54d410443340c"
+    },
+    {
+      "path": "public/assets/face/惊讶.png",
+      "sha256": "9c4cbb97fd929c9c34cf61baaec7b11b7056b9261a3602a161acfcb02a4a5609"
+    },
+    {
+      "path": "public/assets/face/愉快.png",
+      "sha256": "767bd3cb2876698eb4813884b531930e00e7ce8e880e748dae01dae162f98a77"
+    },
+    {
+      "path": "public/assets/face/憨笑.png",
+      "sha256": "b0f831cff4f9e5fa994e623d63d1e40a86764e29f2b6692f9f71d5604340dd47"
+    },
+    {
+      "path": "public/assets/face/打脸.png",
+      "sha256": "7eafa8d9a77cd40e49663a33f06f06040a08b386742cfeb066a22bdd551187df"
+    },
+    {
+      "path": "public/assets/face/抓狂.png",
+      "sha256": "874e30b67664b683967da200f245e1271625321060536eef5ab5c77b6b9d0b54"
+    },
+    {
+      "path": "public/assets/face/抠鼻.png",
+      "sha256": "f6c206e62f3cb94cf118057d0e2e2da4de4bdc852fa2a63b9034337a3370d7df"
+    },
+    {
+      "path": "public/assets/face/捂脸.png",
+      "sha256": "5147077f51572908abd84cceff2658cc15f89f68906bc491784a7d21dd60df28"
+    },
+    {
+      "path": "public/assets/face/撇嘴.png",
+      "sha256": "1de51de09b84ab3627693eb2dc9953b91db21cb1ee4006ec442ba3c19d668a39"
+    },
+    {
+      "path": "public/assets/face/擦汗.png",
+      "sha256": "734a81773f93d325ba3c253783a876f0ed120849cf475e4f0260d630a22717a7"
+    },
+    {
+      "path": "public/assets/face/敲打.png",
+      "sha256": "d9609e0ccd88a7e10abf29078de66e3186f8fc2a8a8b60c0600bd02f9e18f681"
+    },
+    {
+      "path": "public/assets/face/无语.png",
+      "sha256": "538a93f1e23b3d8c1988cbcf9b9b2305e78d032fbaac1da8b043ab03c7379fc9"
+    },
+    {
+      "path": "public/assets/face/旺柴.png",
+      "sha256": "7fb6060f92026f6abc327412f9da8081dc38780e7d6e8fe69d952653d8776539"
+    },
+    {
+      "path": "public/assets/face/晕.png",
+      "sha256": "f89732f9e7caa4226b38cc1b61acaf7b509b1ca7334ff6580d74aeadf017f026"
+    },
+    {
+      "path": "public/assets/face/机智.png",
+      "sha256": "7ab4217fec9d61d8f21092a0b3e17b0023db72c320eeedd37faa0d8d2705bccd"
+    },
+    {
+      "path": "public/assets/face/汗.png",
+      "sha256": "19696d48d42f242dd0ac832c699f44d1cc32a3ae367feef6b510d9ea0b43208f"
+    },
+    {
+      "path": "public/assets/face/流泪.png",
+      "sha256": "b01677e0666ec74f9584f0fc2b4b84c3f8511ea23b12d9f15d69d1b893cc0772"
+    },
+    {
+      "path": "public/assets/face/生病.png",
+      "sha256": "46e07fcb8e360a3e7dd5184fe2289a1118889230fb1894ecfae96b4217e5030a"
+    },
+    {
+      "path": "public/assets/face/疑问.png",
+      "sha256": "08b73a2c2bfd98f003d98586806ebc8bb27cfc9038f227fad8dd6b3705798ac4"
+    },
+    {
+      "path": "public/assets/face/白眼.png",
+      "sha256": "bcec847fef4b68702178b9411580fa52c8e56e6a0e76e5cd47ec7f4e40042d42"
+    },
+    {
+      "path": "public/assets/face/皱眉.png",
+      "sha256": "4842c861e673ee27550aeb872fc5480fe1ef235f69c185ea6d172fda0478f5e5"
+    },
+    {
+      "path": "public/assets/face/睡.png",
+      "sha256": "7716c2fb9f029ba8288f0dc128109cf4876825b1f468baae30c4de6a32eae99d"
+    },
+    {
+      "path": "public/assets/face/破涕为笑.png",
+      "sha256": "5d40c89a63ab5344ff92c137f8c86109405ebf057f67d6c8dd6b9b2a6d3ad435"
+    },
+    {
+      "path": "public/assets/face/社会社会.png",
+      "sha256": "6a986c25aab2f511f9e53ae4c5cc88b9000780affb4c4a98677c4b0773855092"
+    },
+    {
+      "path": "public/assets/face/笑脸.png",
+      "sha256": "7a2ff1852970d14b60367208658c05f0ca01932547cebedcbe017b5981de0cf5"
+    },
+    {
+      "path": "public/assets/face/翻白眼.png",
+      "sha256": "cc34bc444b01167be25fb15e53fdfafb5c9bba466497b6f66829d1f612706b1a"
+    },
+    {
+      "path": "public/assets/face/耶.png",
+      "sha256": "cb5a9602750088ff5b6518524ae20fa3c8ea4cc5e9cb4484fc13d503ce1465e4"
+    },
+    {
+      "path": "public/assets/face/脸红.png",
+      "sha256": "e2c0e0976a1404486e4934a48dcb5392b3d6d3a743da4f8923b21e97f3748712"
+    },
+    {
+      "path": "public/assets/face/色.png",
+      "sha256": "ec555d77d6cbb31cc93a27ff83050286bd069c9edbef3b444072149c6af01d8e"
+    },
+    {
+      "path": "public/assets/face/苦涩.png",
+      "sha256": "fb0054507a10df6c486e783665b86572eb3b1a6cf3a7535011bf700835824d57"
+    },
+    {
+      "path": "public/assets/face/衰.png",
+      "sha256": "f5ab87ebc4278f8a2936a64e56bd72ddad7ab15a0f2c819606eca0e411610bb4"
+    },
+    {
+      "path": "public/assets/face/裂开.png",
+      "sha256": "d0298972c72a9df6558950fa79b288fa3db35329fe4eb3ea94bb8b03c6526ee9"
+    },
+    {
+      "path": "public/assets/face/让我看看.png",
+      "sha256": "ec0f3efc43aeddfa82b4b2b2b7b1a72f250aecf295551561fbdaa3d0ec498605"
+    },
+    {
+      "path": "public/assets/face/调皮.png",
+      "sha256": "f7a1bb581d387967191fcc9b0bc000b64203647729d8a4de8e4a6db8ebc4b99d"
+    },
+    {
+      "path": "public/assets/face/鄙视.png",
+      "sha256": "fd9c318cf6553181f3b66e9a012655ed44a1aaff0124761e23247d02468bc87e"
+    },
+    {
+      "path": "public/assets/face/闭嘴.png",
+      "sha256": "3685afd866d08b17c657300f50e9ba3e73655e65c6f5b4a497da5c991efa876c"
+    },
+    {
+      "path": "public/assets/face/阴险.png",
+      "sha256": "32387c3034ef706bbff0ab7d81816696e6bc2fdecce6384e80418110ba87022f"
+    },
+    {
+      "path": "public/assets/face/难过.png",
+      "sha256": "e199f21d0b6e777ac51749d8ad5ac88eef7fa083e962fae439ec65635303a5b1"
+    },
+    {
+      "path": "public/assets/face/骷髅.png",
+      "sha256": "2ff9caa69e12a9cd8bb4f42b5f173c5286b4c9c104c702f6acd293eb378678fb"
+    },
+    {
+      "path": "public/assets/face/鼓掌.png",
+      "sha256": "6ac22d62e7443691b9cc446f11d53f3f5e166183016ed80725b9ee498a5dd9a9"
+    },
+    {
+      "path": "public/assets/gesture/OK.png",
+      "sha256": "559d533b1c01251aa2674f7281fe92c54f28d9c5e0c5901da7ff9cfabdf2a002"
+    },
+    {
+      "path": "public/assets/gesture/勾引.png",
+      "sha256": "4a783f8035da789d38ec2dd121afe20b9e2a73bf9e8fcb5ff53196eb62d51fa3"
+    },
+    {
+      "path": "public/assets/gesture/合十.png",
+      "sha256": "05cc84516c6760f949f7610c191e6b86fc56459b92fc28cd2d2240748eae3bf8"
+    },
+    {
+      "path": "public/assets/gesture/弱.png",
+      "sha256": "bf921ea90396dbd5fc0204b82fd6340442a4b622f7e626b4352a7225953ee7ce"
+    },
+    {
+      "path": "public/assets/gesture/强.png",
+      "sha256": "49d531806700f64e0e738b17c97b7c6e3fa9fc51249f106ab2d5fc02c511778e"
+    },
+    {
+      "path": "public/assets/gesture/抱拳.png",
+      "sha256": "a9f66bdd3aada07861cdd1aa5c18ea48dee9acae53fa3ef66c040e5b6cd3d76b"
+    },
+    {
+      "path": "public/assets/gesture/拥抱.png",
+      "sha256": "6a30b29f41bea6b057e5a73b08f9e951672fb7cead043be1ba610f42b9b45ed5"
+    },
+    {
+      "path": "public/assets/gesture/拳头.png",
+      "sha256": "5f29ba5cc5624338acc367c53b159bd811e4e22ecec0ebad5609d0eb9664266d"
+    },
+    {
+      "path": "public/assets/gesture/握手.png",
+      "sha256": "e8bf4326150c2c781ef7ad92aaf2693eee8aea87a7bc04f077693bf996231deb"
+    },
+    {
+      "path": "public/assets/gesture/胜利.png",
+      "sha256": "6b4f0378f7f9282dfad7c4616b6e8fd3b286543bcc0dd639842c038a1b93a074"
+    },
+    {
+      "path": "public/assets/insight/AI_Insight.png",
+      "sha256": "6fe3332396fa781687c3dd16e465874c9d4787763c57dd5c64815024ccfb9cfd"
+    },
+    {
+      "path": "public/assets/other/便便.png",
+      "sha256": "2c78c9b3defd9a5ae36e3dd686a53180e612ff41ce6a47a40e28a817587f19d0"
+    },
+    {
+      "path": "public/assets/other/凋谢.png",
+      "sha256": "d1d4b601e0245dbd28cb8805dd92d23b6fe672d620969ddc34e64573d99b8c3b"
+    },
+    {
+      "path": "public/assets/other/咖啡.png",
+      "sha256": "2e0d46928fda90138b1354f11873964d2d1f9055fe1079c769edcb68ee679cfa"
+    },
+    {
+      "path": "public/assets/other/啤酒.png",
+      "sha256": "6d144a768a1dfbe4d1f089645f4ec8e151275ef8a110cc9c532d0e50283e03cb"
+    },
+    {
+      "path": "public/assets/other/嘴唇.png",
+      "sha256": "4152f6ab61b8e3c411e1d9af7df28dbde0d0871990dd8e418dfe3a812f16227f"
+    },
+    {
+      "path": "public/assets/other/太阳.png",
+      "sha256": "4d1a19304116626c62492770865f429d229ed4d71349c9d9b3944ad2a82a35eb"
+    },
+    {
+      "path": "public/assets/other/心碎.png",
+      "sha256": "0796e0d067f5b0d9b9a77e80f1346d0efd7920c08961d3cde468ffd1d8ec4427"
+    },
+    {
+      "path": "public/assets/other/月亮.png",
+      "sha256": "2e11df5c44af09fd609664302072bf060326e9636fcf14f37f37eee47e0719d8"
+    },
+    {
+      "path": "public/assets/other/炸弹.png",
+      "sha256": "43e03671581d12d75478417ddc471d7e2ae7067c5ba7809408a32847834a8c4e"
+    },
+    {
+      "path": "public/assets/other/爱心.png",
+      "sha256": "c76db36dc5b374b71ef532ced14b253d323fe2f872eeee3c345a7c3e25af254a"
+    },
+    {
+      "path": "public/assets/other/玫瑰.png",
+      "sha256": "59e09e617286b712c6e6ce3c16a1e02c10c6c9a81dfbeb697ea09ae9b7829d02"
+    },
+    {
+      "path": "public/assets/other/菜刀.png",
+      "sha256": "7e93095c0c71b89f7e29852ace22dc333541b8508875c93c729210a1912f7503"
+    },
+    {
+      "path": "public/assets/other/蛋糕.png",
+      "sha256": "4894ce34ecf0b2b24e6cd430f04d9722c0115a585661d2ec99baf29688ca6f20"
+    },
+    {
+      "path": "public/icon.ico",
+      "sha256": "796b662e8b28cb591fbd59b1d59a7f109ffa25bc925cb6d097f095409c0e92b9"
+    },
+    {
+      "path": "public/icon.png",
+      "sha256": "8cb4d0566770b8b377232d452aaec9784cef14db5bfd31129e31986c5fd362bc"
+    },
+    {
+      "path": "public/logo.png",
+      "sha256": "8cb4d0566770b8b377232d452aaec9784cef14db5bfd31129e31986c5fd362bc"
+    },
+    {
+      "path": "resources/fonts/annual-report/CormorantGaramond-Var.ttf",
+      "sha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0"
+    },
+    {
+      "path": "resources/fonts/annual-report/Inter-Var.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "resources/fonts/annual-report/NotoSerifSC-Var.ttf",
+      "sha256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9"
+    },
+    {
+      "path": "resources/fonts/annual-report/PlayfairDisplay-Var.ttf",
+      "sha256": "c40f2293766a503bc70cce9e512ef844a4ccb7cbcde792fe2ea31d191917d8d6"
+    },
+    {
+      "path": "resources/fonts/annual-report/SpaceMono-Bold.ttf",
+      "sha256": "405e73d41afb7e5906efce206a326af5c956f38e255f35421c260e861e599c59"
+    },
+    {
+      "path": "resources/fonts/annual-report/SpaceMono-Regular.ttf",
+      "sha256": "95837e182baeeada83368f7748db28357f0a1b75c6b84ff7065b5edf933c8e18"
+    },
+    {
+      "path": "resources/icons/macos/icon.icns",
+      "sha256": "547ae93a7b50582ff5ff6536a31146f82c36484100701bdc37a7611dd7b1fd68"
+    },
+    {
+      "path": "resources/installer/linux/icon.png",
+      "sha256": "b1c412d9c08ae683e231173c16fe73958ad1063f14c9b3852373385e4fcb6f33"
+    }
+  ],
+  "additional_public_sources": [
+    "https://github.com/Tencent/wcdb/releases/tag/v2.1.16",
+    "https://github.com/hicccc77/WeFlow/commit/fa4edebed63843f6383233a678bf27f327445c79"
+  ]
+}

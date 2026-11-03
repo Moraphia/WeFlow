@@ -1,0 +1,10 @@
+
+* text=auto eol=lf
+.githooks/* text eol=lf
+*.png binary
+*.jpg binary
+*.ico binary
+*.icns binary
+*.ttf binary
+*.wasm binary
+scripts/quick-pack.py -text

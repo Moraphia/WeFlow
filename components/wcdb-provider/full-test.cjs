@@ -1,0 +1,87 @@
+// Feature integration tests run exclusively on encrypted synthetic fixtures.
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict'),net=require('node:net');
+const {execFileSync}=require('node:child_process'),k=require('koffi');
+const root=path.resolve(__dirname,'../..'),base=fs.mkdtempSync(path.join(root,'.deployment/full-fixture-'));
+const hash=s=>crypto.createHash('md5').update(s).digest('hex'),friend='fixture_friend',group='fixture_group@chatroom',media='fixture_media';
+const exe=path.join(__dirname,'build/Release/create_fixture.exe');
+execFileSync(exe,[base,hash(friend),hash(group),hash(media)],{windowsHide:true});
+for(const [dir,name,data] of [['Img','fixture.dat',Buffer.from([255,216,255,217])],['Video','fixture.mp4',Buffer.from('fixture')]]){const d=path.join(base,'msg/attach/fixture_dir/2023-11',dir);fs.mkdirSync(d,{recursive:true});fs.writeFileSync(path.join(d,name),data)}
+const lib=k.load(path.join(root,'resources/local-wcdb/win32/x64/weflow_wcdb_provider.dll')),fn=s=>lib.func(s),free=fn('void wcdb_free_string(void*)'),tested=new Set();
+function call(name,signature,args=[],raw=false){tested.add(name);const out=[null],status=fn('int32 '+name+'('+signature+(signature?',':'')+'_Out_ void**)')(...args,out);let value;if(out[0]){const s=k.decode(out[0],'char',-1);free(out[0]);value=raw?s:JSON.parse(s)}assert.equal(status,0,name+': '+JSON.stringify(value));return value}
+const h=[0];assert.equal(fn('int32 wcdb_init()')(),0);assert.equal(fn('int32 wcdb_open_account(const char*,const char*,_Out_ int64*)')(path.join(base,'db_storage/session/session.db'),'01'.repeat(32),h),0);
+const handle=h[0];fn('int32 wcdb_set_my_account_id(int64,const char*)')(handle,'fixture_me');
+const get=(name,sig,args=[],raw=false)=>call('wcdb_'+name,'int64'+(sig?','+sig:''),[handle,...args],raw);
+const q=(kind,sql)=>get('exec_query','const char*,const char*,const char*',[kind,'',sql]);
+const external=(kind,sql)=>execFileSync(exe,['--fixture-sql',path.join(base,'db_storage',kind,kind==='message'?'message_0.db':kind+'.db'),sql],{windowsHide:true});
+async function main(){
+  assert.equal(get('get_sessions').length,3);
+  assert.equal(get('get_contacts_compact','const char*',[null]).length,5);
+  assert.equal(get('get_contact_alias_map','const char*',[JSON.stringify([friend])])[friend],'friend');
+  assert.equal(get('get_avatar_urls','const char*',[JSON.stringify([friend])])[friend],'https://example.invalid/avatar');
+  assert.equal(get('get_contact_friend_flags','const char*',[JSON.stringify([friend])])[friend],true);
+  assert.equal(get('get_contact_type_counts').group,1);
+  external('contact',"ALTER TABLE contact ADD COLUMN quan_pin TEXT; INSERT INTO contact(username,local_type,flag,quan_pin) VALUES('former_fixture',0,0,'former'),('unknown_fixture',0,0,NULL),('blocked_fixture',1,8,NULL),('gh_fixture',1,0,NULL),('gh_f0a92aa7146c',1,0,NULL)");
+  assert.deepEqual(get('get_contact_type_counts'),{private:5,group:1,official:1,former_friend:1,blocked:1});
+  assert.deepEqual(get('get_contact_status','const char*',[JSON.stringify([friend])])[friend],{isMuted:true,isFolded:true});
+  assert.equal(get('get_head_image_buffers','const char*',[JSON.stringify([friend])])[friend],'ffd8ffd9');
+  assert.equal(get('get_group_members','const char*',[group]).length,2);
+  assert.equal(get('get_group_nicknames','const char*',[group])[friend],'Buddy');
+  const memberCount=[0];assert.equal(fn('int32 wcdb_get_group_member_count(int64,const char*,_Out_ int32*)')(handle,group,memberCount),0);assert.equal(memberCount[0],2);
+  assert.equal(get('get_group_member_counts','const char*',[JSON.stringify([group])])[group],2);
+  assert.ok(get('get_chat_room_ext_buffer','const char*',[group]).ext_buffer);
+  assert.equal(get('search_messages','const char*,const char*,int32,int32,int32,int32',['','第三',10,0,0,0]).length,1);
+  const stats=get('get_session_message_type_stats','const char*,int32,int32',[media,0,0]);assert.equal(stats.total_messages,5);for(const type of ['image','voice','video','emoji','file'])assert.equal(stats[type+'_messages'],1,type);
+  const batch=get('get_session_message_type_stats_batch','const char*,const char*',[JSON.stringify([media]),JSON.stringify({begin:1700000010,end:1700000030,include_date_counts:true})]);assert.equal(batch[media].total_messages,3);assert.equal(Object.values(batch[media].date_counts).reduce((a,b)=>a+b,0),3);
+  assert.equal(Object.values(get('get_session_message_date_counts','const char*',[friend])).reduce((a,b)=>a+b,0),3);
+  assert.ok(get('get_session_message_date_counts_batch','const char*',[JSON.stringify([friend])])[friend]);
+  assert.equal(get('get_message_dates','const char*',[friend]).length,1);
+  const tables=get('get_message_tables','const char*',[friend]);assert.equal(tables.length,2);assert.equal(get('get_message_table_stats','const char*',[friend]).length,2);
+  assert.ok(get('get_message_table_columns','const char*,const char*',[tables[0].db_path,tables[0].table_name]).includes('message_content'));
+  assert.equal(get('get_message_table_time_range','const char*,const char*',[tables[0].db_path,tables[0].table_name]).min_time,10);
+  assert.equal(get('get_message_meta','const char*,const char*,int32,int32',[tables[0].db_path,tables[0].table_name,10,0]).length,2);
+  for(const name of ['get_aggregate_stats','get_annual_report_stats']){const s=get(name,'const char*,int32,int32',[JSON.stringify([friend,media]),0,0]);assert.equal(s.total,8);assert.equal(s.sent+s.received,s.total);assert.ok(s.monthly);assert.ok(s.weekday);assert.equal(s.firstTime,10);}
+  assert.equal(get('get_group_stats','const char*,int32,int32',[group,0,0]).sessions[group].total,2);
+  assert.ok(get('get_available_years','const char*',[JSON.stringify([friend,media])]).includes(2023));
+  const extras=get('get_annual_report_extras','const char*,int32,int32,int32,int32',[JSON.stringify([friend]),0,0,0,0]);assert.equal(extras.heatmap.length,7);assert.equal(extras.response[friend].count,1);
+  assert.equal(get('get_dual_report_stats','const char*,int32,int32',[friend,0,0]).counts.total,3);
+  const footprint=get('get_my_footprint_stats','const char*',[JSON.stringify({my_accountId:'fixture_me',private_session_ids:[friend],group_session_ids:[group]})]);assert.equal(footprint.summary.mention_count,1);assert.equal(footprint.private_segments.length,1);
+  assert.equal(get('ai_query_session_candidates','const char*',[JSON.stringify({keyword:'second'})]).candidates[0].sender_username,friend);
+  assert.equal(get('list_media_dbs').length,1);assert.ok(get('get_media_schema_summary','const char*',['']).VoiceInfo);
+  const voice=get('get_voice_data','const char*,int32,int32,int64,const char*',[media,1700000010,2,3002,'[]'],true);assert.equal(Buffer.from(voice,'hex').toString(),'#!SILK_V3');
+  assert.equal(get('get_voice_data_batch','const char*',[JSON.stringify([{session_id:media,create_time:1700000010,local_id:2,svr_id:3002}])])[0].hex,voice);
+  for(const name of ['get_emoticon_cdn_url','get_emoticon_caption'])assert.ok(get(name,'const char*,const char*',['','c'.repeat(32)],true));
+  assert.equal(get('get_emoticon_caption_strict','const char*',['c'.repeat(32)],true),'fixture emoji');
+  assert.equal(get('resolve_image_hardlink','const char*,const char*',['a'.repeat(32),base]).exists,true);
+  assert.equal(get('resolve_video_hardlink_md5','const char*,const char*',['b'.repeat(32),'']).exists,true);
+  for(const [name,digest] of [['resolve_image_hardlink_batch','a'],['resolve_video_hardlink_md5_batch','b']])assert.equal(get(name,'const char*',[JSON.stringify([{md5:digest.repeat(32)}])])[0].success,true);
+  const streamOut=[null],hasMore=[0];assert.equal(fn('int32 wcdb_scan_media_stream(int64,const char*,int32,int32,int32,int32,int32,_Out_ void**,_Out_ int32*)')(handle,JSON.stringify([media]),3,0,0,1,0,streamOut,hasMore),0);assert.equal(JSON.parse(k.decode(streamOut[0],'char',-1)).length,1);free(streamOut[0]);
+  assert.equal(get('get_sns_timeline','int32,int32,const char*,const char*,int32,int32',[20,0,'','',0,0])[0].tid,'14260628800000000000');
+  assert.equal(get('get_sns_usernames')[0],'fixture_me');assert.equal(get('get_sns_export_stats','const char*',['fixture_me']).my_posts,1);
+  const snsStats=get('get_sns_annual_stats','int32,int32',[0,0]);assert.equal(snsStats.totalPosts,1);assert.equal(snsStats.topLikers[0].username,friend);
+  // Database mutation checks only touch this synthetic directory.
+  get('mark_all_sessions_read','',[],true);assert.ok(q('session','SELECT unread_count FROM SessionTable').every(r=>r.unread_count===0));
+  assert.equal(get('reorder_sessions_by_time').updated_rows,1);
+  get('update_message','const char*,int64,int32,const char*',[friend,1,10,"edited ' message"],true);assert.equal(get('get_message_by_id','const char*,int32',[friend,1]).message_content,"edited ' message");
+  get('install_message_anti_revoke_trigger','const char*',[friend],true);const installed=[0];fn('int32 wcdb_check_message_anti_revoke_trigger(int64,const char*,_Out_ int32*)')(handle,friend,installed);assert.equal(installed[0],1);
+  external('message','DELETE FROM Msg_'+hash(friend)+' WHERE local_id=1; UPDATE Msg_'+hash(friend)+" SET local_type=10000,message_content='revokemsg' WHERE local_id=1;");assert.equal(get('get_message_by_id','const char*,int32',[friend,1]).message_content,"edited ' message");
+  get('uninstall_message_anti_revoke_trigger','const char*',[friend],true);
+  const inserted=get('insert_text_message','const char*,const char*,int64,int64',[friend,'inserted',1,40]);assert.equal(inserted.local_id,4);
+  get('delete_message','const char*,int64,int32,const char*',[friend,4,40,''],true);
+  get('install_sns_block_delete_trigger','',[],true);const protectedSns=[0];fn('int32 wcdb_check_sns_block_delete_trigger(int64,_Out_ int32*)')(handle,protectedSns);assert.equal(protectedSns[0],1);external('sns','DELETE FROM SnsTimeLine');assert.equal(get('get_sns_export_stats','const char*',['']).total_posts,1);
+  const snapshot=path.join(base,'snapshot.jsonl');assert.equal(get('export_table_snapshot','const char*,const char*,const char*,const char*',['sns','','SnsTimeLine',snapshot]).rows,1);
+  get('delete_sns_post','const char*',['14260628800000000000'],true);assert.equal(get('get_sns_export_stats','const char*',['']).total_posts,0);
+  assert.equal(get('import_table_snapshot','const char*,const char*,const char*,const char*',['sns','','SnsTimeLine',snapshot]).inserted,1);
+  assert.equal(get('import_table_snapshot_with_schema','const char*,const char*,const char*,const char*,const char*',['sns','','SnsTimeLine',snapshot,'CREATE TABLE SnsTimeLine(tid INTEGER PRIMARY KEY,user_name TEXT,content TEXT,pack_info_buf TEXT)']).ignored,1);
+  const restoredDb=path.join(base,'db_storage/sns/restored_fixture.db');
+  assert.equal(get('import_table_snapshot_with_schema','const char*,const char*,const char*,const char*,const char*',['sns',restoredDb,'SnsTimeLine',snapshot,'CREATE TABLE SnsTimeLine(tid INTEGER PRIMARY KEY,user_name TEXT,content TEXT,pack_info_buf TEXT)']).inserted,1);
+  assert.notEqual(fs.readFileSync(restoredDb).subarray(0,16).toString(),'SQLite format 3\0');
+  get('uninstall_sns_block_delete_trigger','',[],true);
+  assert.ok(get('list_tables','const char*,const char*',['contact','']).includes('contact'));assert.match(get('get_table_schema','const char*,const char*,const char*',['contact','','contact']).schema,/CREATE TABLE/);
+  assert.equal(fn('int32 wcdb_start_monitor_pipe()')(),0);const pipe=call('wcdb_get_monitor_pipe_name','',[],true);
+  await new Promise((resolve,reject)=>{const c=net.createConnection(pipe),timer=setTimeout(()=>{c.destroy();reject(Error('No monitor event'))},5000);c.on('error',reject);c.on('connect',()=>setTimeout(()=>external('session',"UPDATE SessionTable SET summary='monitor fixture' WHERE username='fixture_friend'"),400));c.on('data',chunk=>{assert.equal(JSON.parse(chunk.toString().trim().split('\n')[0]).action,'update');clearTimeout(timer);c.destroy();resolve()})});
+  fn('void wcdb_stop_monitor_pipe()')();assert.equal(fn('int32 wcdb_purge_memory()')(),0);assert.equal(fn('int32 wcdb_close_account(int64)')(handle),0);assert.equal(fn('int32 wcdb_shutdown()')(),0);
+  const helloBuffer=Buffer.alloc(1024);fn('void VerifyUser(int64,const char*,_Out_ char*,int32)')(0,'synthetic test',helloBuffer,1024);assert.equal(JSON.parse(helloBuffer.toString().split('\0')[0]).success,false);
+  const source=['provider.cpp','features.inc','statistics.inc','navigation.inc','media_sns.inc','sns_stats.inc','mutations.inc','monitor.inc'].map(p=>fs.readFileSync(path.join(__dirname,p),'utf8')).join('\n');const documented=[...new Set(fs.readFileSync(path.join(root,'docs/third-party-components.md'),'utf8').match(/wcdb_\w+(?=\()/g))];const missing=documented.filter(n=>!new RegExp('API\\s+(?:int32_t|void)\\s+'+n+'\\(').test(source));assert.deepEqual(missing,['wcdb_cloud_init','wcdb_cloud_report','wcdb_cloud_stop']);
+  const report={passed:true,syntheticFixtureOnly:true,fixture:base,exercisedInterfaces:tested.size,implementedInterfaces:documented.length-missing.length,optionalNotImplemented:missing,checks:['contacts and groups','search','all report types','date counts and metadata','footprint and mentions','AI candidate search','voice fragments','image/video paths','emoticons','SNS timeline and annual stats','edit/insert/delete messages','anti-revoke preserves existing messages','SNS deletion protection','lossless snapshot restore','real named-pipe file-change notifications']};fs.writeFileSync(path.join(root,'.deployment/full-provider-test.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+}
+main().catch(e=>{try{fn('int32 wcdb_shutdown()')()}catch{}console.error(e);process.exitCode=1});
